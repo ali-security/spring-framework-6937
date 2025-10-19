@@ -349,7 +349,6 @@ public class FreeMarkerMacroTests {
 	private void storeTemplateInTempDir(String macro) throws IOException {
 		Files.write(this.templateLoaderPath.resolve("tmp.ftl"),
 			("<#import \"spring.ftl\" as spring />\n" + macro).getBytes(UTF_8));
-		);
 	}
 
 	private String getOutput() throws IOException {
