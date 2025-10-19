@@ -49,7 +49,7 @@ import org.springframework.web.testfixture.servlet.MockHttpServletResponse;
 import org.springframework.web.testfixture.servlet.MockServletContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
+import static java.nio.charset.StandardCharsets.UTF_8;
 /**
  * @author Darren Davison
  * @author Juergen Hoeller
@@ -347,8 +347,8 @@ public class FreeMarkerMacroTests {
 	}
 
 	private void storeTemplateInTempDir(String macro) throws IOException {
-		Files.writeString(this.templateLoaderPath.resolve("tmp.ftl"),
-				"<#import \"spring.ftl\" as spring />\n" + macro
+		Files.write(this.templateLoaderPath.resolve("tmp.ftl"),
+			("<#import \"spring.ftl\" as spring />\n" + macro).getBytes(UTF_8));
 		);
 	}
 
